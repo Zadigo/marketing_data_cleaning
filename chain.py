@@ -24,3 +24,5 @@ def chain_for_dataframe(filename, write_file=True):
                 orient='records'
             )
         return df
+
+chain_for_dataframe(DATA_FOLDER_PATH / 'inputs/v2.json')
