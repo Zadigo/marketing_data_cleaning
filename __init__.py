@@ -10,16 +10,18 @@ ENV_PATH = PROJECT_PATH / '.env'
 DATA_FOLDER_PATH = PROJECT_PATH / 'data'
 
 BASE_COLUMNS = {
-    'company',
-    'enriched',
-    'full_name',
+    'linkedin',
     'first_name',
     'last_name',
-    'company_linkedin',
-    'linkedin',
+    'full_name',
     'position',
+    'company',
+    'company_linkedin',
+    'enriched',
     'website'
 }
+
+BASE_COLUMNS_WITH_EMAIL = BASE_COLUMNS.update(['courtesy_columns', 'email'])
 
 BASE_AIRTABLE_COLUMNS = {
     'LinkedIn',
