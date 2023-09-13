@@ -25,4 +25,4 @@ def chain_for_dataframe(filename, write_file=True):
             )
         return df
 
-chain_for_dataframe(DATA_FOLDER_PATH / 'inputs/v2.json')
+chain_for_dataframe(DATA_FOLDER_PATH / 'inputs/v4.json')
