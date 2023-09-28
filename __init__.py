@@ -1,4 +1,5 @@
 import pathlib
+import os
 
 import dotenv
 
@@ -25,10 +26,10 @@ BASE_COLUMNS_WITH_EMAIL = BASE_COLUMNS.update(['courtesy_columns', 'email'])
 
 BASE_AIRTABLE_COLUMNS = {
     'LinkedIn',
-    'Civilité', 
-    'Prénom', 
-    'Nom', 
-    'Nom complet', 
+    'Civilité',
+    'Prénom',
+    'Nom',
+    'Nom complet',
     'Poste',
     'Entreprise',
     'Company LinkedIn',
@@ -40,3 +41,11 @@ BASE_AIRTABLE_COLUMNS = {
 
 
 dotenv.load_dotenv(ENV_PATH)
+
+
+def get_windows_download_folder():
+    return pathlib.Path(os.getenv('DOWNLOAD_FOLDER'))
+
+
+def file_from_download_folder(filename):
+    return get_windows_download_folder() / filename
