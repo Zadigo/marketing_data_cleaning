@@ -1,8 +1,8 @@
-import pathlib
+import datetime
 import os
+import pathlib
 
 import dotenv
-
 
 PROJECT_PATH = pathlib.Path(__file__).parent.absolute()
 
@@ -49,3 +49,17 @@ def get_windows_download_folder():
 
 def file_from_download_folder(filename):
     return get_windows_download_folder() / filename
+
+
+def create_filename(prefix=None):
+    if prefix is None:
+        prefix = 'v'
+    d = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
+    filename = f"{prefix}_{d.replace(' ', '_').replace(':', '-')}"
+    return filename
+
+
+def get_file_absolute_path(prefix=None, extension='csv'):
+    filename = create_filename(prefix=prefix)
+    path = DATA_FOLDER_PATH / f"{filename}.{extension}"
+    return path
